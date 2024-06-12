@@ -6,10 +6,18 @@ public class PlayerController : MonoBehaviour
 {      
     public GameObject player;
     public float speed = 2.5f;
-    // Start is called before the first frame update
+
+    private Vector3 initialPosition;
+    public bool missionComplete1 = false;
+
+    public static PlayerController Instance { get; private set; }
+
+    void Awake(){
+        Instance = this;
+    }
     void Start()
     {
-        
+        initialPosition = player.transform.position;
     }
 
     // Update is called once per frame
@@ -28,5 +36,17 @@ public class PlayerController : MonoBehaviour
             player.transform.position += (Vector3.forward * speed * Time.deltaTime);
         }
     
+    }
+
+    public void completeMission(int mision){
+        if(mision == 1){
+            missionComplete1 = true;
+        }
+    }
+    public void SetInitialPosition(){
+        if(!missionComplete1){
+            player.transform.position = initialPosition;
+        }
+        
     }
 }
