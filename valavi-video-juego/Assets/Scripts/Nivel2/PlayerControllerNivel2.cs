@@ -121,28 +121,32 @@ public class PlayerControllerNivel2 : MonoBehaviour
     public void rgbmision(int color){
 
         //print("hola");
-        list.Add(color);
-        print("Lista actual: " + string.Join(", ", list));
-        AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
-        mision_comleted_message.SetActive(true);
+        if (!list.Contains(color)) {
+            list.Add(color);
+            print("Lista actual: " + string.Join(", ", list));
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+            mision_comleted_message.SetActive(true);
 
-        if (list.Count == 3)
-        {
-            if (list[0] == 1 && list[1] == 2 && list[2] == 3){
-                mision3= true;
-                mision2= true;
-                mision1= true;
-                actual_mision_completed = true;
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
-            }
-            else {
-                list.Clear();
-                mision_comleted_message.SetActive(false);
-                mision_uncomleted_message.SetActive(true);
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.error);
-                GameObject.FindObjectOfType<CollisionController>().ResetBotellas();
+            if (list.Count == 3)
+            {
+                if (list[0] == 1 && list[1] == 2 && list[2] == 3){
+                    mision3= true;
+                    mision2= true;
+                    mision1= true;
+                    actual_mision_completed = true;
+                    mision_comleted_message.SetActive(false);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
+                }
+                else {
+                    list.Clear();
+                    mision_comleted_message.SetActive(false);
+                    mision_uncomleted_message.SetActive(true);
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.error);
+                    GameObject.FindObjectOfType<CollisionController>().ResetBotellas();
 
+                }
             }
+        
         }
         
     }

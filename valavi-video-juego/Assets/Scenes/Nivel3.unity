@@ -34989,7 +34989,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xA1Las puertas de salida no funcionan normalmente, estas bloqueado en
     un c\xEDrculo vicioso!\nBusca los objetos que te podr\xEDan ayudar a repararlas
-    y escaparte."
+    y escaparte.\nSi sigues bloqueado, puedes pedir una pista."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -73445,8 +73445,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\xA1Encontraste un mensaje en la botella! \nEl mensaje forma parte de
-    un conjunto de 3 consignas, a recuperar con el orden correcto, para abrir la
-    puerta y por fin escaparte."
+    una lista de 3 consignas para abrir la puerta. Encuentra las 3 en el orden correcto
+    y por fin podras escaparte."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

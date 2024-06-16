@@ -7353,7 +7353,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xA1Las puertas de salida no funcionan normalmente, estas bloqueado en
     un c\xEDrculo vicioso!\nBusca los objetos que te podr\xEDan ayudar a repararlas
-    y escaparte."
+    y escaparte.\nSi sigues bloqueado, puedes pedir una pista."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
