@@ -9355,7 +9355,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 282914961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a935b2ad3af55f4e987034967e02c16, type: 3}
+  m_Script: {fileID: 11500000, guid: b5fe4905d6fb4d44fb46b1a79908cf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 972572774}
@@ -26757,7 +26757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_jump_speed: 10
-  Lvlrst: {fileID: 0}
 --- !u!54 &768408593
 Rigidbody:
   m_ObjectHideFlags: 0
