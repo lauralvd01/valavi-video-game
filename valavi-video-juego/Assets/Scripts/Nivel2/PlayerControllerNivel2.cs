@@ -7,14 +7,17 @@ public class PlayerControllerNivel2 : MonoBehaviour
 {  
     public float m_speed = 7f;
     public float m_jump_speed = 10f;
+    public static PlayerControllerNivel2 Instance { get; private set; }
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
+
     private Vector3 m_restart_position = new Vector3(0, 3, 0);
-     private AudioClip Lvlrst;
+    private AudioClip Lvlrst;
     private bool mision1 = false;
+    private bool mision2 = false;
     private bool mision3 = false;
-    public static PlayerControllerNivel2 Instance { get; private set; }
+    private bool actual_mision_completed = false;
     List<int> list = new List<int>();
 
     void Awake(){
@@ -68,40 +71,41 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "RightBorder" && !mision1){
+        if(other.gameObject.name == "RightBorder" && !actual_mision_completed){
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
             transform.position = m_restart_position;
         }
-        else if(other.gameObject.name == "RightBorder" && mision1 == true){
-            if(mision3 == true) {
-            
-                print("MISION 3 COMPLETADA UWU");
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
-                UnityEngine.SceneManagement.SceneManager.LoadScene("FinalScene");
-            } 
-            else {
-                
+        else if(other.gameObject.name == "RightBorder" && mision1){
+            if(mision2) {
+                if (mision3) {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("FinalScene");
+                }
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
                 UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel3");
+            } 
+            else {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel2");
             }
         }
-
-        else if (other.gameObject.name == "RightBorder" && !mision3){
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
-            transform.position = m_restart_position;
-
-        }  
     }
 
     public void missionComplete(int mision){
         if(mision == 1){
             print("hola buenas tardes");
             mision1 = true;
+            actual_mision_completed = true;
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+        }
+        if(mision == 2){
+            mision2 = true;
+            mision1 = true;
+            actual_mision_completed = true;
             AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
         }
     }
 
-    
     public void rgbmision(int color){
 
         //print("hola");
@@ -112,8 +116,10 @@ public class PlayerControllerNivel2 : MonoBehaviour
         {
             if (list[0] == 1 && list[1] == 2 && list[2] == 3){
                 print("mision completada");
-                mision3= true; 
+                mision3= true;
+                mision2= true;
                 mision1= true;
+                actual_mision_completed = true;
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
             }
             else {
