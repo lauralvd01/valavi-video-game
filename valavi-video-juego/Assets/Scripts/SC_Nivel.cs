@@ -5,6 +5,7 @@ using UnityEngine;
 public class SC_Nivel : MonoBehaviour
 {
     public int nivel;
+    public GameObject hintPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,14 @@ public class SC_Nivel : MonoBehaviour
     public void GoToMenuButton() {
         AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
         UnityEngine.SceneManagement.SceneManager.LoadScene("HomeScene");
+    }
+
+    public void GetHintButton() {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+        hintPanel.SetActive(true);
+    }
+
+    public void HideHintButton() {
+        hintPanel.SetActive(false);
     }
 }
