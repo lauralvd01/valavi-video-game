@@ -77,7 +77,7 @@ public class PlayerControllerNivel2 : MonoBehaviour
             
                 print("MISION 3 COMPLETADA UWU");
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
-                UnityEngine.SceneManagement.SceneManager.LoadScene("HomeScene");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("FinalScene");
             } 
             else {
                 
