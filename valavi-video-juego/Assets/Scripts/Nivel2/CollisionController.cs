@@ -17,11 +17,12 @@ public class CollisionController : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger detected with " + other.gameObject.name + " and " + this.gameObject.name);
-        if(this.gameObject.name == "paredInvisible"){
-            PlayerController.Instance.SetInitialPosition();
-        }
-        if(this.gameObject.name == "Objeto"){
-            PlayerController.Instance.completeMission(1);
+        // if(this.gameObject.name == "paredInvisible"){
+        //     PlayerController.Instance.SetInitialPosition();
+        // }
+        if(this.gameObject.name == "MAPA"){
+            Debug.Log("mapaa");
+            PlayerControllerNivel2.Instance.missionComplete(1);
         }
     }
 }

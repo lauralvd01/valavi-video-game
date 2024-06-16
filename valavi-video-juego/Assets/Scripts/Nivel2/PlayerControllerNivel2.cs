@@ -10,7 +10,12 @@ public class PlayerControllerNivel2 : MonoBehaviour
     private Animator m_animator;
     private Rigidbody m_rigidbody;
     private Vector3 m_restart_position = new Vector3(-42, 3, 0);
+    private bool mision1 = false;
+    public static PlayerControllerNivel2 Instance { get; private set; }
 
+    void Awake(){
+        Instance = this;
+    }
     void Start()
     {
         m_animator = GetComponent<Animator>();
@@ -56,8 +61,15 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "RightBorder"){
+        if(other.gameObject.name == "RightBorder" && !mision1){
             transform.position = m_restart_position;
         }
+        else if(other.gameObject.name == "RightBorder" && mision1){
+            print("MISION COMPLETADA UWU");
+        }
+    }
+
+    public void missionComplete(int mision){
+        mision1 = true;
     }
 }
