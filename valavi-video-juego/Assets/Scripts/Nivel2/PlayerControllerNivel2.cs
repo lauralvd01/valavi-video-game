@@ -9,6 +9,9 @@ public class PlayerControllerNivel2 : MonoBehaviour
     public float m_jump_speed = 10f;
     public static PlayerControllerNivel2 Instance { get; private set; }
 
+    public GameObject m_info_circulo;
+    public GameObject m_hint_button;
+
     private Animator m_animator;
     private Rigidbody m_rigidbody;
 
@@ -74,6 +77,8 @@ public class PlayerControllerNivel2 : MonoBehaviour
         if(other.gameObject.name == "RightBorder" && !actual_mision_completed){
             AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
             transform.position = m_restart_position;
+            m_info_circulo.SetActive(true);
+            m_hint_button.SetActive(true);
         }
         else if(other.gameObject.name == "RightBorder" && mision1){
             if(mision2) {
