@@ -81,8 +81,10 @@ public class PlayerControllerNivel2 : MonoBehaviour
                     AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
                     UnityEngine.SceneManagement.SceneManager.LoadScene("FinalScene");
                 }
-                AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
-                UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel3");
+                else {
+                    AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel3");
+                }
             } 
             else {
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
