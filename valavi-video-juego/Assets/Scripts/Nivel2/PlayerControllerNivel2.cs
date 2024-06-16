@@ -60,7 +60,7 @@ public class PlayerControllerNivel2 : MonoBehaviour
             m_animator.SetFloat("Speed", m_rigidbody.velocity.magnitude);
         }
 
-        if(Input.GetKey("space") && transform.position.y < 6){
+        if(Input.GetKey("space") && (transform.position.y < 6 || (m_rigidbody.velocity.y > -0.001 && m_rigidbody.velocity.y < 0.001))){
             m_animator.SetBool("Jump", true);
             transform.Translate(Vector3.up * m_jump_speed * Time.deltaTime);
         }
