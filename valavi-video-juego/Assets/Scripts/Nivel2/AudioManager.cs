@@ -12,7 +12,7 @@ public class AudioManager : MonoBehaviour
         public AudioClip ITEM;
         public AudioClip WAI;
         public AudioClip Lvlrst;
-
+        public AudioClip error;
         void Awake(){
                 Instance = this;
         }
