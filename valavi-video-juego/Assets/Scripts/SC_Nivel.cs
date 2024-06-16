@@ -8,6 +8,8 @@ public class SC_Nivel : MonoBehaviour
     public GameObject infoPanel;
     public GameObject infoCirculoPanel;
     public GameObject hintPanel;
+    public GameObject missionPanel;
+    public GameObject missionIncompletePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -64,5 +66,13 @@ public class SC_Nivel : MonoBehaviour
 
     public void HideHintButton() {
         hintPanel.SetActive(false);
+    }
+
+    public void HideMissionCompletedButton() {
+        missionPanel.SetActive(false);
+    }
+
+    public void HideMissionIncompletedButton() {
+        missionIncompletePanel.SetActive(false);
     }
 }

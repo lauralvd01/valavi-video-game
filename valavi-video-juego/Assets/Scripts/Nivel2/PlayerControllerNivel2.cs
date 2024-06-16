@@ -11,6 +11,8 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     public GameObject m_info_circulo;
     public GameObject m_hint_button;
+    public GameObject mision_comleted_message = null;
+    public GameObject mision_uncomleted_message = null;
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
@@ -79,6 +81,7 @@ public class PlayerControllerNivel2 : MonoBehaviour
             transform.position = m_restart_position;
             m_info_circulo.SetActive(true);
             m_hint_button.SetActive(true);
+            GameObject.FindObjectOfType<CollisionController>().ResetBotellas();
         }
         else if(other.gameObject.name == "RightBorder" && mision1){
             if(mision2) {
@@ -103,12 +106,14 @@ public class PlayerControllerNivel2 : MonoBehaviour
             print("hola buenas tardes");
             mision1 = true;
             actual_mision_completed = true;
+            mision_comleted_message.SetActive(true);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
         }
         if(mision == 2){
             mision2 = true;
             mision1 = true;
             actual_mision_completed = true;
+            mision_comleted_message.SetActive(true);
             AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
         }
     }
@@ -119,10 +124,11 @@ public class PlayerControllerNivel2 : MonoBehaviour
         list.Add(color);
         print("Lista actual: " + string.Join(", ", list));
         AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+        mision_comleted_message.SetActive(true);
+
         if (list.Count == 3)
         {
             if (list[0] == 1 && list[1] == 2 && list[2] == 3){
-                print("mision completada");
                 mision3= true;
                 mision2= true;
                 mision1= true;
@@ -130,8 +136,9 @@ public class PlayerControllerNivel2 : MonoBehaviour
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
             }
             else {
-                print("mision fallida");
                 list.Clear();
+                mision_comleted_message.SetActive(false);
+                mision_uncomleted_message.SetActive(true);
                 AudioManager.Instance.PlaySFX(AudioManager.Instance.error);
                 GameObject.FindObjectOfType<CollisionController>().ResetBotellas();
 
@@ -145,12 +152,13 @@ public class PlayerControllerNivel2 : MonoBehaviour
         // Aquí puedes cambiar el tamaño del objeto, por ejemplo, duplicarlo
         obj.transform.localScale = obj.transform.localScale * 0;
     }
+    
     public void ResetBotellas()
-{
-    GameObject[] botellas = GameObject.FindGameObjectsWithTag("botella"); // Ajusta la etiqueta según tu configuración
-    foreach (GameObject botella in botellas)
     {
-        botella.transform.localScale = new Vector3(3f, 3f, 3f); // Establece el tamaño original de la botella
+        GameObject[] botellas = GameObject.FindGameObjectsWithTag("botella"); // Ajusta la etiqueta según tu configuración
+        foreach (GameObject botella in botellas)
+        {
+            botella.transform.localScale = new Vector3(3f, 3f, 3f); // Establece el tamaño original de la botella
+        }
     }
-}
 }
