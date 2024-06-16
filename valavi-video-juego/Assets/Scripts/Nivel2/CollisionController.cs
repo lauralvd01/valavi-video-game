@@ -24,5 +24,36 @@ public class CollisionController : MonoBehaviour
             Debug.Log("mapaa");
             PlayerControllerNivel2.Instance.missionComplete(1);
         }
+
+                else if(this.gameObject.name == "BOTELLA_ROJA"){
+            Debug.Log("rojo");
+            GameObject objetoParaCambiar = this.gameObject; 
+            PlayerControllerNivel2.Instance.ChangeSize(objetoParaCambiar);
+            PlayerControllerNivel2.Instance.rgbmision(1);
+
+        }
+        
+                else if(this.gameObject.name == "BOTELLA_VERDE"){
+            Debug.Log("verde");
+            GameObject objetoParaCambiar = this.gameObject; 
+            PlayerControllerNivel2.Instance.ChangeSize(objetoParaCambiar);
+            PlayerControllerNivel2.Instance.rgbmision(2);
+
+        }
+
+                else if(this.gameObject.name == "BOTELLA_AZUL"){
+            Debug.Log("azul");
+            GameObject objetoParaCambiar = this.gameObject; 
+            
+            PlayerControllerNivel2.Instance.ChangeSize(objetoParaCambiar);
+            PlayerControllerNivel2.Instance.rgbmision(3);
+        }
+
+
     }
+        public void ResetBotellas()
+    {
+        PlayerControllerNivel2.Instance.ResetBotellas();
+    }
+
 }

@@ -16,7 +16,8 @@ public class SC_MainMenu : MonoBehaviour
     public void PlayNowButton()
     {
         // Play Now Button has been pressed, here you can initialize your game (For example Load a Scene called GameLevel etc.)
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainScene");
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel1");
     }
 
     public void CreditsButton()
@@ -24,6 +25,7 @@ public class SC_MainMenu : MonoBehaviour
         // Show Credits Menu
         MainMenu.SetActive(false);
         CreditsMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
     }
 
     public void MainMenuButton()
@@ -31,11 +33,13 @@ public class SC_MainMenu : MonoBehaviour
         // Show Main Menu
         MainMenu.SetActive(true);
         CreditsMenu.SetActive(false);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
     }
 
     public void QuitButton()
     {
         // Quit Game
         Application.Quit();
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
     }
 }
