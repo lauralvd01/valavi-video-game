@@ -14,8 +14,8 @@ public class AudioManager : MonoBehaviour
         public AudioClip Lvlrst;
 
         void Awake(){
-        Instance = this;
-         }
+                Instance = this;
+        }
 
 
         private void Start()

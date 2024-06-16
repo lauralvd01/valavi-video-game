@@ -70,10 +70,15 @@ public class PlayerControllerNivel2 : MonoBehaviour
         }
         else if(other.gameObject.name == "RightBorder" && mision1){
             print("MISION COMPLETADA UWU");
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.lvlcomplete);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Nivel2");
         }
     }
 
     public void missionComplete(int mision){
-        mision1 = true;
+        if(mision == 1){
+            mision1 = true;
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.ITEM);
+        }
     }
 }
