@@ -41,6 +41,7 @@ sysinfo.txt
 # Crashlytics generated file
 *Assets/StreamingAssets/crashlytics-build.properties
 
+# Downloaded complete model assests
 valavi-video-juego/Assets/Models/FBX format/
 valavi-video-juego/Assets/Models/FBX format.meta
 valavi-video-juego/Assets/Models/GLB format/
@@ -49,4 +50,3 @@ valavi-video-juego/Assets/Models/OBJ format/
 valavi-video-juego/Assets/Models/OBJ format.meta
 valavi-video-juego/Assets/Models/Textures/
 valavi-video-juego/Assets/Models/Textures.meta
-
