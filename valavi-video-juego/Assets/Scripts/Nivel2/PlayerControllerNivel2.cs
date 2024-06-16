@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PlayerControllerNivel2 : MonoBehaviour
 {  
-    public float m_speed = 7f;
+    public float m_speed = 10f;
     public float m_jump_speed = 10f;
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
     private Vector3 m_restart_position = new Vector3(-42, 3, 0);
-    private bool mision1 = false;
-    public static PlayerControllerNivel2 Instance { get; private set; }
+    private AudioClip Lvlrst;
 
-    void Awake(){
-        Instance = this;
-    }
+
+
     void Start()
     {
         m_animator = GetComponent<Animator>();
@@ -25,29 +23,29 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     void Update()
     {
-        Vector3 velocity_vector = Vector3.forward * m_speed * Time.deltaTime;
         if(Input.GetKey("a") || Input.GetKey("left")){
-            m_animator.SetFloat("Speed", velocity_vector.magnitude);
-            transform.rotation = Quaternion.Euler(0, 270, 0);
+            Vector3 velocity_vector = Vector3.left * m_speed * Time.deltaTime;
+            m_animator.SetFloat("Speed_X", velocity_vector.x);
             transform.Translate(velocity_vector);
         }
         else if(Input.GetKey("d") || Input.GetKey("right")){
-            m_animator.SetFloat("Speed", velocity_vector.magnitude);
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            Vector3 velocity_vector = Vector3.right * m_speed * Time.deltaTime;
+            m_animator.SetFloat("Speed_X", velocity_vector.x);
             transform.Translate(velocity_vector);
         }
         else if(Input.GetKey("s") || Input.GetKey("down")){
-            m_animator.SetFloat("Speed", velocity_vector.magnitude);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            Vector3 velocity_vector = -1 * Vector3.forward * m_speed * Time.deltaTime;
+            m_animator.SetFloat("Speed_Z", velocity_vector.z);
             transform.Translate(velocity_vector);
         }
         else if(Input.GetKey("w") || Input.GetKey("up")){
-            m_animator.SetFloat("Speed", velocity_vector.magnitude);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            Vector3 velocity_vector = Vector3.forward * m_speed * Time.deltaTime;
+            m_animator.SetFloat("Speed_Z", velocity_vector.z);
             transform.Translate(velocity_vector);
         }
         else{
-            m_animator.SetFloat("Speed", m_rigidbody.velocity.magnitude);
+            m_animator.SetFloat("Speed_X", m_rigidbody.velocity.x);
+            m_animator.SetFloat("Speed_Z", m_rigidbody.velocity.z);
         }
 
         if(Input.GetKey("space") && transform.position.y < 6){
@@ -61,15 +59,9 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "RightBorder" && !mision1){
+        if(other.gameObject.name == "RightBorder"){
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.Lvlrst);
             transform.position = m_restart_position;
         }
-        else if(other.gameObject.name == "RightBorder" && mision1){
-            print("MISION COMPLETADA UWU");
-        }
-    }
-
-    public void missionComplete(int mision){
-        mision1 = true;
     }
 }
