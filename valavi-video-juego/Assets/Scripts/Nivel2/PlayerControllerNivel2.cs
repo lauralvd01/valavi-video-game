@@ -10,7 +10,7 @@ public class PlayerControllerNivel2 : MonoBehaviour
 
     private Animator m_animator;
     private Rigidbody m_rigidbody;
-    private Vector3 m_restart_position = new Vector3(-42, 3, 0);
+    private Vector3 m_restart_position = new Vector3(0, 3, 0);
      private AudioClip Lvlrst;
     private bool mision1 = false;
     private bool mision3 = false;

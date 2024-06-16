@@ -26873,7 +26873,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 120, y: 1.778572, z: 0.4936638}
+  m_Size: {x: 120, y: 30, z: 0.4936638}
   m_Center: {x: -2, y: 0.3892861, z: 4.851634}
 --- !u!1001 &744836195
 PrefabInstance:
@@ -47918,6 +47918,7 @@ MonoBehaviour:
   ITEM: {fileID: 8300000, guid: 28c957c7972eef6448babac69d89d104, type: 3}
   WAI: {fileID: 8300000, guid: 746310602d46a0549b45bb28cd7e174b, type: 3}
   Lvlrst: {fileID: 8300000, guid: 026cb3779cc856648b1f83906fdf9666, type: 3}
+  error: {fileID: 0}
 --- !u!4 &1240031339
 Transform:
   m_ObjectHideFlags: 0
